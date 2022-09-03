@@ -1,5 +1,5 @@
 [package]
-name = "actix-web-on-cloud-run"
+name = "actix_web_on_cloud_run"
 version = "0.1.0"
 edition = "2021"
 

@@ -5,14 +5,11 @@ RUN cargo install cargo-watch
 COPY . .
 
 # ビルド環境
-FROM ekidd/rust-musl-builder:stable as build-stage
-WORKDIR /home/rust
-COPY . .
+FROM develop-stage as build-stage
 RUN cargo build --release
 
 # 本番環境
-FROM alpine:latest as production-stage
-WORKDIR /actix-web-on-cloud-run
-COPY --from=build-stage /home/rust/target/x86_64-unknown-linux-musl/release/actix-web-on-cloud-run . 
+FROM debian:bullseye-slim as production-stage
+COPY --from=build-stage /app/target/release/actix_web_on_cloud_run .
 EXPOSE 8080
-ENTRYPOINT [ "./actix-web-on-cloud-run" ] 
+CMD ["./actix_web_on_cloud_run"]
