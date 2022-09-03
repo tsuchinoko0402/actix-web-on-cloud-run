@@ -10,6 +10,6 @@ RUN cargo build --release
 
 # 本番環境
 FROM scratch:latest
-COPY --from=build-stage /home/rust/target/x86_64-unknown-linux-musl/release/actix_web_sample . 
+COPY --from=build-stage /app/target/release/actix-web-on-cloud-run . 
 EXPOSE 8080
-ENTRYPOINT [ "./actix_web_sample" ] 
+ENTRYPOINT [ "./actix-web-on-cloud-run" ] 
