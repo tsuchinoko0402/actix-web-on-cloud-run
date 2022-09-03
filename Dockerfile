@@ -9,7 +9,7 @@ FROM develop-stage as build-stage
 RUN cargo build --release
 
 # 本番環境
-FROM scratch:latest
+FROM scratch
 COPY --from=build-stage /app/target/release/actix-web-on-cloud-run . 
 EXPOSE 8080
 ENTRYPOINT [ "./actix-web-on-cloud-run" ] 
