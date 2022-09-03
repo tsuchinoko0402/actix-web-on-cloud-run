@@ -15,7 +15,7 @@ async fn main() -> Result<(), actix_web::Error> {
     let port = std::env::var("PORT")
         .ok()
         .and_then(|val| val.parse::<u16>().ok())
-        .unwrap_or(CONFIG.server_port);
+        .unwrap_or(CONFIG.port);
         
     HttpServer::new(move || App::new().service(index))
         .bind(format!("{}:{}", CONFIG.server_address, port))?

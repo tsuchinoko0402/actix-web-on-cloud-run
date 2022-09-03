@@ -6,7 +6,7 @@ use serde::Deserialize;
 #[derive(Deserialize, Debug)]
 pub struct AppConfig {
     pub server_address: String,
-    pub server_port: u16,
+    pub port: u16,
 }
 
 /// static変数の初期化          
