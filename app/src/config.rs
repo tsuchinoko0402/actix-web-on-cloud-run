@@ -7,6 +7,7 @@ use serde::Deserialize;
 pub struct AppConfig {
     pub server_address: String,
     pub port: u16,
+    pub database_url: String,
 }
 
 /// static変数の初期化          
