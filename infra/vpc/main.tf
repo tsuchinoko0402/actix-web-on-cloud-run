@@ -43,7 +43,7 @@ resource "google_vpc_access_connector" "connector" {
   network       = google_compute_network.vpc.name
   machine_type  = var.vpc_connector_machine_type
   min_instances = 2
-  max_instances = 100
+  max_instances = 10
 
   depends_on = [google_project_service.vpcaccess_api]
 }
