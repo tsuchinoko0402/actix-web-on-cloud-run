@@ -22,9 +22,6 @@ cloud_run: cloud_sql
 cloud_sql: secret_manager vpc
 	${RUN_CMD}
 
-secret_manager:
-	${RUN_CMD}
-
 vpc:
 	${RUN_CMD}
 
